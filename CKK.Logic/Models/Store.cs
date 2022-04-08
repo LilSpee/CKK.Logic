@@ -33,30 +33,38 @@ namespace CKK.Logic.Models
         }
         public void AddStoreItem(Product prod)
         {
-            if (_product1 == null)
+            prod = _product1;
+            if (prod != null)
             {
-                prod = _product1;
+                prod = _product2;
+            }
+            if (prod != null)
+            {
+                prod = _product3;
             }
         }
         public void RemoveStoreItem(int productNum)
         {
-            if (_product1 != null)
+            if(productNum == _product1.GetId())
             {
                 _product1 = null;
             }
         }
         public Product GetStoreItem(int productNum)
         {
-            return productNum;
+            return _product1;
+
         }
         public Product FindStoreItemById(int id)
         {
-            id = _id;
-            if(id = _product1)
+            if (id == _product1.GetId())
             {
-
+                return _product1;
             }
-            return _product1;
+            else
+            {
+                return null;
+            }
         }
     }
 }
